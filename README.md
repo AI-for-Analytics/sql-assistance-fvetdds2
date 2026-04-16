@@ -53,9 +53,10 @@ FROM league_switch AS ls INNER JOIN ws_matchups AS ws ON ls.al_team = ws.al_team
 ORDER BY yearid;
 ```
 
-This query is trying to find players who:
-*played more than onece in the same year in traded CTE
-*In league_switch CTE, result show players in traded who played in both American league and National league in the same year
+This query is trying to find players who: 
+* played more than onece in the same year in traded CTE, each row returns playerid and yearid. Thes CTE is used to feed into league_switch
+* In league_switch CTE, result show players in traded who played in both American league and National league in the same year. Each row shows player id, yearid, AL_team, NL_team for the same player and year. This CTE is used to matched against World series teams in ws_matchups
+* ws_matchups identifies world series matchups both AL winner and NL winner. Each row shows yearid, AL_team, NL_team. It is used to find players who switched leagues in the same year and were in both AL and NL teams that met in the world series
 
 
 
