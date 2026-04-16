@@ -53,6 +53,12 @@ FROM league_switch AS ls INNER JOIN ws_matchups AS ws ON ls.al_team = ws.al_team
 ORDER BY yearid;
 ```
 
+This query is trying to find players who:
+*played more than onece in the same year in traded CTE
+*In league_switch CTE, result show players in traded who played in both American league and National league in the same year
+
+
+
 2.
 ```
 WITH months AS (
